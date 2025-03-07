@@ -1,0 +1,22 @@
+<h2>Registration Form</h2>
+<form  [formGroup]="registrationForm" (ngSubmit)="abc(registrationForm.value)"  >
+    <h3>
+        Enter Customer ID: <input type="number" name="customerId" formControlName="customerId" ><br>
+        Enter Username: <input type="text" name="username"  formControlName="username"><br>
+        Enter Password: <input type="text" name="password" formControlName="password" ><br>
+        Confirm Password: <input type="text" name="confirmPassword" formControlName="confirmPassword" ><br>
+        Enter Account Number: <input type="text" name="accountNo" formControlName="accountNo" ><br>
+
+        <br>
+        <input type="submit" value="SUBMIT" [disabled]="registrationForm.invalid">
+        <input type="reset" value="RESET">
+    </h3>
+</form>
+
+<p>
+Customer ID (Only digits with exact 7 numbers) <br>
+username (Can't be empty and min 5 characters, no digits) <br>
+password (can't be empty, min - 8 characters with 1Uppercase-1LowerCase-Special character) <br>
+confirm (Should match with password)
+accountNo (mandatory, min 6 digits)
+</p>
