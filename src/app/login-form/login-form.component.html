@@ -1,0 +1,11 @@
+<h2>Registration Form</h2>
+<form  [formGroup]="loginForm" (ngSubmit)="abc(loginForm.value)"  >
+    <h3>
+        Enter Customer ID: <input type="number" name="customerId" formControlName="customerId" ><br>
+        Enter Password: <input type="text" name="password" formControlName="password" ><br>
+        <br>
+        <input type="submit" value="SUBMIT" [disabled]="loginForm.invalid">
+        <input type="reset" value="RESET">
+    </h3>
+</form>
+

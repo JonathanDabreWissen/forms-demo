@@ -3,36 +3,27 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { LoginServiceService } from '../services/login-service.service';
 
 @Component({
-  selector: 'app-registration-form',
+  selector: 'app-login-form',
   imports: [ReactiveFormsModule, FormsModule],
-  templateUrl: './registration-form.component.html',
-  styleUrl: './registration-form.component.css'
+  templateUrl: './login-form.component.html',
+  styleUrl: './login-form.component.css'
 })
-export class RegistrationFormComponent {
-  registrationForm! : FormGroup;
+export class LoginFormComponent {
+  loginForm! : FormGroup;
 
   constructor(public ls:LoginServiceService){
 
   }
 
   ngOnInit(){
-    this.registrationForm = new FormGroup({
+    this.loginForm = new FormGroup({
 
       customerId: new FormControl("", this.customerIdValidator),
-      username : new FormControl("", Validators.compose([
-        Validators.minLength(5),
-        Validators.pattern('^[a-zA-Z]+$'),
-        Validators.required
-      ])),
+      
       password: new FormControl("", Validators.compose([
         Validators.required,
         Validators.minLength(8),
         //Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z@$!%*?&]+$')
-      ])),
-      confirmPassword:new FormControl('', Validators.required),
-      accountNo: new FormControl("", Validators.compose([
-        Validators.required,
-        Validators.minLength(6)
       ]))
     })
   }
